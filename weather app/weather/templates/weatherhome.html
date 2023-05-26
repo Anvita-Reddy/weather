@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block css %}
+{% load static %}
+body {
+    color: #ffffff;
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #ffffff;
+    background-repeat: no-repeat
+}
+
+.card {
+    background-image: url("https://source.unsplash.com/1000x500/?weather");
+    background-size: cover;
+    width: 1200px;
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 0px;
+    height: 550px;
+    border-radius: 20px;
+    box-shadow: 0px 8px 16px 4px #9E9E9E;
+    
+    margin-bottom: auto;
+}
+.me-2 {
+        font-size: larger;
+    color: #f8f9fa;
+    margin-right: .5rem!important;
+    background: transparent;
+    border-radius: 50px;
+    border-color: #f8f9fa;
+    box-shadow: 0px 8px 16px 4px #130d0d78;}
+.btn-outline-success {
+    color: #f8f9fa;
+    border-color: #f8f9fa;
+}    
+
+.time-font {
+    font-size: 50px
+}
+
+.sm-font {
+    font-size: 18px
+}
+
+.med-font {
+    font-size: 28px
+}
+
+.large-font {
+    font-size: 60px
+}
+
+.aav{
+    text-align: right;
+    
+}
+.aav{
+    text-align: center;
+    font-style: oblique;
+    font-family: revert;
+    text-shadow: 1px 8px 3px #151010;
+}
+.aav2{
+    text-align: center;
+        font-size: 28px;
+    font-style: oblique;
+    font-family: revert;
+    text-shadow: 1px 8px 3px #151010;
+
+}
+
+.bg-light {
+    background-color: #dc3545!important;
+}
+.d-flex {
+    display: flex!important;
+    padding-top: 10px;
+    
+}
+.icons, svg {
+    vertical-align: middle;
+    position: absolute;
+}
+.imput{
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+{% endblock css %}
+{% block body  %}
+
+
+<div class="container-fluid px-1 px-md-4 py-5 mx-auto">
+
+    <div class="row d-flex justify-content-center px-3">
+    
+
+
+        <div class="card">
+        <div class="icons">
+        <img src="{% static 'favicon1.ico' %}" alt="weather">
+        </div>
+
+        <div class="imput ">
+        <form class="d-flex" Method="Get">
+        
+        
+      <input class="form-control me-2" type="text" name="city" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    </div>
+    <div class=" aav">
+       <!----temperature--->
+            <h1 class="aav">Temperature - {{data.temp}}°C</h1>
+             <!----city---><br>
+            <p class="ml-auto mr-4 mt-3 mb-0 aav2">City - {{data.city}}</p>
+            <!----day--->
+            <p class="ml-auto mr-4 mb-0 med-font aav2">Day - {{data.weather}}</p>
+            <!----Pressure--->
+            <p class="ml-auto mr-4 mb-0 med-font aav2">Pressure - {{data.pressure}} Mb</p>
+            <!----Humidity--->
+            <p class="ml-auto mr-4 mb-0 med-font aav2">Humidity- {{data.humidity}}%</p>
+            <!----windspeed--->
+            <p class="ml-auto mr-4 mb-0 med-font aav2">Windspeed - {{data.windspeed}} km/hr</p>
+            <!---- clouds--->
+            <p class="ml-auto mr-4 mb-0 med-font aav2">Clouds - {{data.desc}}</p>
+            <!---- visibility--->
+            <p class="ml-auto mr-4 mb-0 med-font aav2">Visibility -{{data.visibility}} km</p>
+            <!---- icon--->
+            
+            
+            <!----city--->
+            
+    </div>
+    <p class="time-font mb-0 ml-4 mt-auto datetimes">{{data.tme}}<span class="sm-font">{{data.pss}}</span></p>
+            <p class="ml-4 mb-4">{{data.ampm}}</p>
+             
+        </div>
+    </div>
+</div>
+!-- Footer -->
+<footer class="bg-dark text-center text-white">
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="/">Aavnik</a>
+  </div>
+
+{% endblock  %}
+{% block title  %} Weather Home{% endblock title  %}
